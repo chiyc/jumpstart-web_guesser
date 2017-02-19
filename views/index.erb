@@ -14,23 +14,16 @@
   </head>
   <body>
     <p>
-      <% if guess > number + 5 %>
-        Way too high!
-      <% elsif guess > number %>
-        Too high!
-      <% elsif guess < number - 5 %>
-        Way too low!
-      <% elsif guess < number %>
-        Too low!
-      <% else %>
-        You got it right!  
-      <% end %>
-
-    </p>
-    <p>
-      <% if guess == number %>
+      <% if guess == number || cheat == 'true' %>
         THE SECRET NUMBER IS  <%= number %>
       <% end %>
+    </p>  
+    <p>
+      <%= message %>
+    </p>
+
+    <p>
+      You have <%= no_guesses %> guesses left!
     </p>
     <form>
       <input type='text' name='guess' />
