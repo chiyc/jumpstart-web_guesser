@@ -1,8 +1,40 @@
 <html>
-  <head></head>
+  <head>
+    <style>
+      body {
+        <% if guess > number %>
+          background: #f55;
+        <% elsif guess < number %>
+          background: #f99;
+        <% else %>
+          background: #9f9;
+        <% end %>
+      }
+    </style>
+  </head>
   <body>
     <p>
-      THE SECRET NUMBER IS  <%= number %>
+      <% if guess > number + 5 %>
+        Way too high!
+      <% elsif guess > number %>
+        Too high!
+      <% elsif guess < number - 5 %>
+        Way too low!
+      <% elsif guess < number %>
+        Too low!
+      <% else %>
+        You got it right!  
+      <% end %>
+
     </p>
+    <p>
+      <% if guess == number %>
+        THE SECRET NUMBER IS  <%= number %>
+      <% end %>
+    </p>
+    <form>
+      <input type='text' name='guess' />
+      <input type='submit' value='Guess!' />
+    </form>
   </body>
 </html>
